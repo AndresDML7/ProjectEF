@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Base de datos en memoria
 //builder.Services.AddDbContext<TaskContext>(p => p.UseInMemoryDatabase("TaskDB"));
-builder.Services.AddSqlServer<TaskContext>("Data Source=DESKTOP-T7PGRPB; Initial Catalog=TaskDB; user id=sa; password=andresDML7; TrustServerCertificate=True");
+builder.Services.AddSqlServer<TaskContext>(builder.Configuration.GetConnectionString("cntask"));
 
 var app = builder.Build();
 
